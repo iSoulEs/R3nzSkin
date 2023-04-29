@@ -165,7 +165,7 @@ void GUI::render() noexcept
 				if (ImGui::Combo("Aspecto Torreta Enemiga:", &cheatManager.config->current_combo_chaos_turret_index, vector_getter_default, static_cast<void*>(&cheatManager.database->turret_skins), cheatManager.database->turret_skins.size() + 1))
 					changeTurretSkin(cheatManager.config->current_combo_chaos_turret_index - 1, 200);
 				ImGui::Separator();
-				ImGui::Text("Jungle Mobs Skins Settings:");
+				ImGui::Text("Aspectos de Campamentos Jungla:");
 				for (auto& it : cheatManager.database->jungle_mobs_skins) {
 					std::snprintf(str_buffer, 256, "Current %s skin", it.name);
 					const auto config_entry{ cheatManager.config->current_combo_jungle_mob_skin_index.insert({ it.name_hashes.front(), 0 }) };
@@ -183,7 +183,7 @@ void GUI::render() noexcept
 			}
 
 			if (ImGui::BeginTabItem("Extras")) {
-				ImGui::hotkey("Menu Key", cheatManager.config->menuKey);
+				ImGui::hotkey("Tecla del Menu", cheatManager.config->menuKey);
 				ImGui::Checkbox(cheatManager.config->heroName ? "HeroName based" : "PlayerName based", &cheatManager.config->heroName);
 				ImGui::Checkbox("Texto Arcoiris", &cheatManager.config->rainbowText);
 				ImGui::Checkbox("Cambiar rapido el Aspecto", &cheatManager.config->quickSkinChange);
@@ -191,8 +191,8 @@ void GUI::render() noexcept
 
 				if (cheatManager.config->quickSkinChange) {
 					ImGui::Separator();
-					ImGui::hotkey("Previous Skin Key", cheatManager.config->previousSkinKey);
-					ImGui::hotkey("Next Skin Key", cheatManager.config->nextSkinKey);
+					ImGui::hotkey("Tecla Anterior Aspecto", cheatManager.config->previousSkinKey);
+					ImGui::hotkey("Tecla Proximo Aspecto", cheatManager.config->nextSkinKey);
 					ImGui::Separator();
 				}
 
