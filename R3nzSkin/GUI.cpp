@@ -167,7 +167,7 @@ void GUI::render() noexcept
 				ImGui::Separator();
 				ImGui::Text("Aspectos de Campamentos Jungla:");
 				for (auto& it : cheatManager.database->jungle_mobs_skins) {
-					std::snprintf(str_buffer, 256, "Current %s skin", it.name);
+					std::snprintf(str_buffer, 256, "Aspecto %s Actual", it.name);
 					const auto config_entry{ cheatManager.config->current_combo_jungle_mob_skin_index.insert({ it.name_hashes.front(), 0 }) };
 					if (ImGui::Combo(str_buffer, &config_entry.first->second, vector_getter_default, static_cast<void*>(&it.skins), it.skins.size() + 1))
 						for (const auto& hash : it.name_hashes)
